@@ -10,7 +10,8 @@ CC=gcc
 CPP=g++
 
 # Automatic generation of some important lists
-OBJECTS_1=$(SOURCES:.c=.o)
+FULLPATHSOURCES=$(foreach TMP,$(SOURCES),src/$(TMP))
+OBJECTS_1=$(FULLPATHSOURCES:.c=.o)
 OBJECTS=$(OBJECTS_1:.cpp=.o)
 INCFLAGS=$(foreach TMP,$(INCPATHS),-I$(TMP))
 LIBFLAGS=$(foreach TMP,$(LIBPATHS),-L$(TMP))
@@ -18,7 +19,7 @@ LIBFLAGS=$(foreach TMP,$(LIBPATHS),-L$(TMP))
 # Set up the output file names for the different output types
 BINARY=$(PROJECT)
 
-all: $(SOURCES) $(BINARY)
+all: $(FULLPATHSOURCES) $(BINARY)
 
 $(BINARY): $(OBJECTS)
 	$(CPP) $(LIBFLAGS) $(OBJECTS) $(LDFLAGS) -o $@

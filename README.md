@@ -1,6 +1,5 @@
 #  Tema 1 - Router
-## Student: Cosmin-Razvan VANCEA - 323CA
-----------------------------------------
+Student: Cosmin-Razvan VANCEA - 323CA
 
 ### Module:
 * Tema a fost impartita pe mai multe module:
