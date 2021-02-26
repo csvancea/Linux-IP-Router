@@ -32,7 +32,7 @@ bool RoutingTable::Add(const IP& prefix, const IP& mask, const IP& nextHop, cons
         return false;
     }
     node->entry = new Entry(nextHop, interface);
-    return true;    
+    return true;
 }
 
 bool RoutingTable::GetBestRoute(const IP& destIP, Entry& bestRoute) const

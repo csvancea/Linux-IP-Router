@@ -25,27 +25,27 @@
 #include <netinet/if_ether.h>
 #include <asm/byteorder.h>
 
-/* 
- *Note that "buffer" should be at least the MTU size of the 
- * interface, eg 1500 bytes 
+/*
+ *Note that "buffer" should be at least the MTU size of the
+ * interface, eg 1500 bytes
  */
 #define MAX_LEN 1600
 #define ROUTER_NUM_INTERFACES 4
 #define LOGGING_ENABLED
 
 #define DIE(condition, message) \
-	do { \
-		if ((condition)) { \
-			fprintf(stderr, "[%d]: %s\n", __LINE__, (message)); \
-			perror(""); \
-			exit(1); \
-		} \
-	} while (0)
+    do { \
+        if ((condition)) { \
+            fprintf(stderr, "[%d]: %s\n", __LINE__, (message)); \
+            perror(""); \
+            exit(1); \
+        } \
+    } while (0)
 
 #ifdef LOGGING_ENABLED
-	#define LOG(format, ...) do { printf(format, ## __VA_ARGS__); } while (0)
+    #define LOG(format, ...) do { printf(format, ## __VA_ARGS__); } while (0)
 #else
-	#define LOG(format, ...)
+    #define LOG(format, ...)
 #endif
 
 #ifdef __cplusplus
@@ -53,9 +53,9 @@ extern "C" {
 #endif
 
 typedef struct {
-	int len;
-	char payload[MAX_LEN];
-	int interface;
+    int len;
+    char payload[MAX_LEN];
+    int interface;
 } packet_t;
 
 extern int interfaces[ROUTER_NUM_INTERFACES];

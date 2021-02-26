@@ -10,11 +10,11 @@
 #include "skel.h"
 
 
-class IP 
+class IP
 {
 public:
     IP () : IP(kIPNull) { }
-    IP (uint32_t ip) 
+    IP (uint32_t ip)
     {
         addr.s_addr = ip;
         addrString.assign(inet_ntoa(addr));
@@ -82,7 +82,7 @@ public:
         char ipAddr[INET_ADDRSTRLEN];
 
         get_interface_mac(index, macAddr);
-		strcpy(ipAddr, get_interface_ip(index));
+        strcpy(ipAddr, get_interface_ip(index));
 
         ip = IP(ipAddr);
         mac = MAC(macAddr);
@@ -92,7 +92,7 @@ public:
     const MAC& GetMAC() const { return mac; }
     int GetIndex() const { return index; }
 
-private:    
+private:
     IP ip;
     MAC mac;
     int index;

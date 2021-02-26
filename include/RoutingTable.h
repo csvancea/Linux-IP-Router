@@ -23,7 +23,7 @@ public:
         IP nextHop;
         Interface interface;
 
-        friend class RoutingTable; 
+        friend class RoutingTable;
     };
 
     bool Add(const IP& prefix, const IP& mask, const IP& nextHop, const Interface& interface);
@@ -34,7 +34,7 @@ private:
     struct Node
     {
         static constexpr int kMaxChildren = 2;
-        
+
         Node()
         {
             entry = nullptr;
